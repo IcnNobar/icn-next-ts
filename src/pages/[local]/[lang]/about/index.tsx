@@ -1,13 +1,17 @@
+import { useRouter } from "next/router";
 
-const about = () => {
- 
+const About = () => {
+  const router = useRouter();
+  const { local, lang } = router.query;
 
-    return (
-      <div>
-        <p>You are currently on: about </p>
-      </div>
-    );
-  };
-  
-  export default about;
-  
+  return (
+    <div>
+      <p>You are currently on: about</p>
+      <p>
+        Local: {local}, Language: {lang}
+      </p>
+    </div>
+  );
+};
+
+export default About;

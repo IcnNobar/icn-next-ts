@@ -76,27 +76,24 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
 
   useEffect(() => {
     const fetchData = async () => {
-        if (typeof window !== "undefined") {
-            try {
-              const path = window.location.pathname;
-          
-              // Split the path into segments based on the '/' character
-              const segments = path.split("/");
-          
-              const localCountry = segments[1] || "sa";
-              const localLang = segments[2] || "jo";   
-          
-       
-          
-              localStorage.setItem("lang", localLang);
-              localStorage.setItem("local", localCountry);
-            } catch (error) {
-             
-              localStorage.setItem("lang", "ar");
-              localStorage.setItem("local", "sa");
-            }
-          }
-          
+      if (typeof window !== "undefined") {
+        try {
+          const path = window.location.pathname;
+
+          // Split the path into segments based on the '/' character
+          const segments = path.split("/");
+
+          const localCountry = segments[1] || "jo";
+          const localLang = segments[2] || "ar";
+
+          localStorage.setItem("lang", localLang);
+          localStorage.setItem("local", localCountry);
+        } catch (error) {
+          localStorage.setItem("lang", "ar");
+          localStorage.setItem("local", "sa");
+        }
+      }
+
       /*  try {
           const response = await apiRequest(ENDPOINTS.translation.getTranslation, HTTP_METHODS.GET);
           setTranslations(response);

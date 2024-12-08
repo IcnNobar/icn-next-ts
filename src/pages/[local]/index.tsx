@@ -1,4 +1,4 @@
-// If the user enter to the root redirect to /jr/ar
+// If the user enter only local without lang redirect to /jr/ar
 const Comp = () => {
   return <></>;
 };
